@@ -7,7 +7,7 @@ using System.Runtime.Serialization.Formatters;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 
-namespace Briefs.DataLayer.Caching
+namespace Experiments.LinqQueryCaching.Caching
 {
     internal class CacheItemSerializationHelper
     {
@@ -30,12 +30,12 @@ namespace Briefs.DataLayer.Caching
             {
                 Serializer.Serialize(writer, listOfT, typeof(List<T>));
 
-                using (var file = File.OpenWrite(string.Format("E:\\Temp\\brieflet-cache\\{0}.json", Stopwatch.GetTimestamp())))
-                {
-                    buffer.Position = 0;
-                    buffer.CopyTo(file);
-                    file.Flush();
-                }
+                //using (var file = File.OpenWrite(string.Format("E:\\Temp\\brieflet-cache\\{0}.json", Stopwatch.GetTimestamp())))
+                //{
+                //    buffer.Position = 0;
+                //    buffer.CopyTo(file);
+                //    file.Flush();
+                //}
 
 
                 return buffer.GetBuffer();

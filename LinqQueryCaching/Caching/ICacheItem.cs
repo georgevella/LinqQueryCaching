@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Briefs.DataLayer.Caching
+namespace Experiments.LinqQueryCaching.Caching
 {
     internal interface ICacheItem
     {

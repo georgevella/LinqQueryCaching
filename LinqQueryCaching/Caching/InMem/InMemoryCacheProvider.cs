@@ -3,7 +3,7 @@ using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 
-namespace Briefs.DataLayer.Caching.InMem
+namespace Experiments.LinqQueryCaching.Caching.InMem
 {
     public class InMemoryCacheProvider : ICacheProvider
     {
@@ -12,7 +12,7 @@ namespace Briefs.DataLayer.Caching.InMem
         public IList<TModel> GetOrAdd<TModel>(Expression expression, Func<IList<TModel>> queryAction)
         {
             var itemCache = GetCache<TModel>();
-            return (IList<TModel>)itemCache.GetOrAdd<TModel>(expression, queryAction);
+            return itemCache.GetOrAdd(expression, queryAction);
         }
 
         public object GetOrAddSingleItem<TModel>(Expression expression, Func<object> queryAction)
@@ -23,7 +23,7 @@ namespace Briefs.DataLayer.Caching.InMem
         public TResult GetOrAddSingleItem<TModel, TResult>(Expression expression, Func<TResult> queryAction)
         {
             var itemCache = GetCache<TModel>();
-            return (TResult)itemCache.GetOrAdd<TResult>(expression, queryAction);
+            return itemCache.GetOrAdd(expression, queryAction);
         }
 
         private ICache GetCache<TModel>()

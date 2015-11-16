@@ -5,7 +5,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 
-namespace Briefs.DataLayer.Caching
+namespace Experiments.LinqQueryCaching.Caching
 {
     //http://blogs.msdn.com/b/mattwar/archive/2007/08/01/linq-building-an-iqueryable-provider-part-iii.aspx
     //https://petemontgomery.wordpress.com/2008/08/07/caching-the-results-of-linq-queries/

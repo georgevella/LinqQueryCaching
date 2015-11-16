@@ -1,9 +1,7 @@
 using System;
 using System.Linq;
-using Experiments.LinqQueryCaching;
 
-
-namespace Briefs.DataLayer.Caching
+namespace Experiments.LinqQueryCaching.Caching
 {
     public class CachedRepository : IRepository
     {

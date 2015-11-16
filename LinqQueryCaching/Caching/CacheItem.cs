@@ -2,7 +2,7 @@
 using System.Diagnostics;
 using System.Linq;
 
-namespace Briefs.DataLayer.Caching
+namespace Experiments.LinqQueryCaching.Caching
 {
     internal class CacheItem<T> : ICacheItem
     {

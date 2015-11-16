@@ -1,7 +1,8 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.CompilerServices;
-using Briefs.DataLayer.Caching;
-using Briefs.DataLayer.Caching.InMem;
+using Experiments.LinqQueryCaching.Caching;
+using Experiments.LinqQueryCaching.Caching.InMem;
 using Experiments.LinqQueryCaching.Model;
 
 namespace Experiments.LinqQueryCaching
@@ -20,7 +21,7 @@ namespace Experiments.LinqQueryCaching
 
             var id = GetCustomerId(r, "Joe");
             var id2 = GetCustomerId(r, "George");
-            var id3 = GetCustomerId(r, new[] { "George" });
+            var id3 = GetCustomerId(r, new List<string>() { "George" });
             var id4 = GetCustomerId(r, new[] { "Joe" });
 
             //var allSalesByJoe1 = query1.Where(x => x.Name == "Joe").ToList();
@@ -41,7 +42,7 @@ namespace Experiments.LinqQueryCaching
         {
             return cachedRepository.All<Customer>().Where(x => x.Name == name).Select(x => x.Id).FirstOrDefault();
         }
-        private static int GetCustomerId(CachedRepository cachedRepository, string[] names)
+        private static int GetCustomerId(CachedRepository cachedRepository, IEnumerable<string> names)
         {
             return cachedRepository.All<Customer>().Where(x => names.Contains(x.Name)).Select(x => x.Id).FirstOrDefault();
         }
